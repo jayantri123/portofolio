@@ -1,0 +1,634 @@
+/* CSS RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html {
+    position: relative;
+}
+
+img {
+    vertical-align: middle;
+}
+
+
+
+/* HEADER */
+header {
+    margin: 0px;
+    padding: 3px;
+    background-color: #ececf1;
+}
+
+/* SLIDER*/
+.mySlides {
+    display: flex;
+}
+
+.slideshow-container img {
+    /* vertical-align: middle; */
+    width: 1200px;
+    height: 500px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    width: 100%;
+    height: 505px;
+    position: relative;
+    margin: 70px auto 0;
+    border: 3px solid grey;
+}
+
+
+/* DOTS*/
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.8s ease-in-out;
+}
+
+.active {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 2s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* END HEADER */
+
+
+/* NAVBAR */
+nav {
+    display: flex;
+    background-color: #3ea0cd;
+    justify-content: space-around;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+#navbar {
+
+    overflow: hidden;
+    z-index: 1;
+    width: 100%;
+    top: 0;
+
+}
+
+#navbar ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+
+
+#navbar ul li a {
+    float: left;
+    color: #292621;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#navbar a:hover {
+    font-size: 17px;
+    background-color: #585858;
+    color: #edf0f1;
+    font-weight: bold;
+}
+
+/* humberger menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 8px;
+
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -5px;
+    top: -5px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(241, 240, 243);
+    border-radius: 3px;
+    transition: all 0.5s;
+
+}
+
+/* Hamburger Menu Animation */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+
+}
+
+.menu-toggle input:checked~span:nth-child(2) {
+    transform: rotate(45deg) translate(-1px, -1px);
+    background-color: white;
+}
+
+.menu-toggle input:checked~span:nth-child(4) {
+    transform: rotate(-45deg) translate(-1px, 0);
+    background-color: white;
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* judul */
+h1 {
+    float: left;
+    margin: 3px 10px 3px 10px;
+}
+
+.title1 {
+    color: rgb(20, 3, 71);
+    font-size: 1.5em;
+
+}
+
+.title2 {
+    color: rgb(253, 253, 253);
+    font-size: 1em;
+    text-decoration: underline;
+    font-weight: 100;
+}
+
+.search[type=text] {
+    width: 20%;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    opacity: 0.8;
+    background-image: url('asset/img/search-icon-png-9964-Windows.ico');
+    background-size: 20px;
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    padding: 8px 20px 8px 40px;
+    -webkit-transition: width 0.4 ease-in-out;
+    transition: width 0.4s ease-in-out;
+    float: left;
+    margin: 10px 25px 10px 15px;
+}
+
+.search[type=text]:focus {
+    width: 40%;
+    float: left;
+    margin-right: 0;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Responsive Breakpoint */
+
+/* Ukuran Tablet */
+@media screen and (max-width:768px) {
+    #navbar ul {
+        width: 50%;
+    }
+}
+
+/* Ukuran mobile */
+@media screen and (max-width:576px) {
+    nav {
+        height: 35px;
+        margin-top: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+
+    }
+
+    #navbar a:hover {
+        width: 195px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+
+
+    #navbar ul {
+        position: absolute;
+        right: 0;
+        top: 5;
+        width: 40%;
+        height: 300px;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        background-color: #3ea0cd;
+        z-index: -1;
+        transform: translateX(100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    #navbar ul.slide {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .title1 {
+
+        font-size: 25px;
+
+    }
+
+    .title2 {
+        font-size: 20px;
+        font-weight: 100;
+    }
+
+    .search[type=text] {
+        width: 25%;
+        height: 25px;
+        margin: 5px;
+        background-size: 15px;
+        background-position: 5px;
+    }
+
+    .search[type=text]:focus {
+        width: 30%;
+        margin-right: 7px;
+    }
+
+    .slideshow-container img {
+        /* vertical-align: middle; */
+        width: 100%;
+        height: 300px;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        width: 100%;
+        height: 305px;
+        position: relative;
+        margin: 50px auto 0;
+        border: 3px solid grey;
+    }
+}
+
+/* END NAVBAR */
+
+/* MAIN */
+main {
+    background-color: #cacfd2;
+    margin: 0;
+}
+
+#home {
+    width: 70%;
+    margin: 0px auto;
+    padding: 30px;
+    text-align: justify;
+}
+
+#home h1 {
+    margin: 0px;
+}
+
+#visimisi {
+    width: 90%;
+    padding: 10px;
+    margin: 20px auto;
+    border: 3px solid rgb(202, 224, 239);
+    display: flex;
+    flex-direction: column;
+    background-color: #4c9fcc;
+    color: white;
+
+}
+
+.visimisi {
+    display: flex;
+    flex-direction: row;
+    margin: 5px auto;
+}
+
+
+#visimisi .vm h1 {
+    text-decoration: underline;
+    display: block;
+    margin: 5px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.vertical {
+    width: 1px;
+    height: 200px;
+    color: rgb(253, 255, 255);
+    border: 2px solid rgb(224, 233, 237);
+
+
+}
+
+.visi {
+    width: 50%;
+    float: left;
+    text-align: center;
+
+}
+
+.misi {
+    width: 50%;
+    float: right;
+    text-align: center;
+
+}
+
+.misi ul {
+    text-align: center;
+    margin: 0px 25px;
+}
+
+.misi ul li {
+    text-align: justify;
+    font-size: 1em;
+    padding: 5px;
+}
+
+@media screen and (max-width:576px) {
+    .visimisi {
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+        width: 100%;
+
+    }
+
+    .visi {
+        margin: 10px auto;
+        text-align: justify;
+
+    }
+
+    .visi h2 {
+        text-align: center;
+    }
+
+    .misi {
+        margin: 10px auto;
+        text-align: justify;
+    }
+
+    .misi h2 {
+        text-align: center;
+    }
+
+    .vertical {
+        display: none;
+    }
+}
+
+#produk {
+    text-align: center;
+}
+
+
+
+/* Produk Kami */
+.container-picture {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px 30px;
+    justify-content: space-around;
+
+}
+
+.pict-produk {
+    position: relative;
+    width: 225px;
+    max-width: 225px;
+    margin: 10px 30px;
+
+}
+
+.pict-produk:hover {
+    box-shadow: 10px 10px rgb(174, 177, 179);
+}
+
+.pict-produk a {
+    list-style: none;
+    text-decoration: none;
+    color: #d3e0d4;
+    font-size: 20px;
+}
+
+.pict-produk a:hover {
+    color: #52b6f0;
+    font-size: 22px;
+
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    /* Black see-through */
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.pict-produk:hover .overlay {
+    opacity: 1;
+}
+
+
+
+/* ASIDE */
+
+aside {
+    width: 100%;
+    margin: 0;
+    padding: 0px;
+    text-align: justify;
+    background-color: #e8edff;
+    border: 2px solid rgb(179, 173, 173);
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+
+#profile {
+    box-shadow: 10px 10px lightblue;
+    width: 80%;
+    height: 100%;
+    padding: 15px;
+    background-color: #4d67de;
+    color: #ffffff;
+    margin: 20px auto 20px;
+    border: 1px solid gainsboro;
+    box-sizing: border-box;
+
+}
+
+figure img {
+    margin: 3px 1px;
+    width: 100px;
+    border: 3px solid #413828;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    float: left;
+}
+
+#komentar {
+    box-shadow: 10px 10px rgb(216, 212, 212);
+    height: 100%;
+    width: 80%;
+    background-color: #717171;
+    color: white;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    margin: 20px auto;
+}
+
+#komentar h4 {
+    font-size: 18px;
+    color: #fefefe;
+    padding-top: 10px;
+    line-height: 20px;
+    text-align: center;
+    height: 40px;
+}
+
+#komentar input[type=text] {
+    width: 98%;
+    height: 30px;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+#komentar input[type=email] {
+    width: 98%;
+    height: 30px;
+    padding: 12px 20px;
+    margin: 8px auto;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+#komentar button[type=submit] {
+    width: 98%;
+    background-color: #3b8eba;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#komentar button[type=submit]:hover {
+    background-color: #fafafa;
+    color: #3b8eba;
+    font-weight: bold;
+}
+
+#komentar textarea {
+    width: 98%;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    background-color: #3d3737;
+    color: #bbb;
+    line-height: 50px;
+
+}
+
+footer .kontak {
+    margin-left: 20px;
+    text-align: left;
+
+}
+
+footer .kontak span {
+    display: block;
+    border: 0px solid white;
+    width: 15%;
+    padding: 0px;
+    height: 35px;
+    margin-top: 0px;
+
+}
+
+.kontak a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
